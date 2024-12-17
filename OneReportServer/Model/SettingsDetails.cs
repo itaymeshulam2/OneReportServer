@@ -28,9 +28,7 @@ namespace OneReportServer.Model
             {
                 if (string.IsNullOrEmpty(_DBConnectionString))
                 {
-                    _DBConnectionString =
-                        "Host=localhost;Port=49617;Database=repotone;Username=repotone;Password=hCU5vZxMjO28t2XsWO3hetgy56jvZxMjO28t2XsWO4567u";
-                    //Environment.GetEnvironmentVariable("POSTGRES_CONNECTION_STRING");
+                    _DBConnectionString = Environment.GetEnvironmentVariable("POSTGRES_CONNECTION_STRING");
                     Log.Information($"_DBConnectionString Length: [{_DBConnectionString.Length}]");
                 }
                 return _DBConnectionString;
@@ -73,8 +71,7 @@ namespace OneReportServer.Model
             {
                 if (string.IsNullOrEmpty(_RedisHost))
                 {
-                    _RedisHost = "127.0.0.1";
-                        Environment.GetEnvironmentVariable("REDIS_HOST");
+                    _RedisHost = Environment.GetEnvironmentVariable("REDIS_HOST");
                     Log.Information($"_RedisHost: [{_RedisHost.Length}]");
                 }
                 return _RedisHost;
@@ -110,34 +107,6 @@ namespace OneReportServer.Model
             }
         }
 
-        private static string _EmailUserName;
-        public static string EmailUserName
-        {
-            get
-            {
-                if (string.IsNullOrEmpty(_EmailUserName))
-                {
-                    _EmailUserName = Environment.GetEnvironmentVariable("EMAIL_USER_NAME");
-                    Log.Information($"_SMSUsername: [{_EmailUserName.Length}]");
-                }
-                return _EmailUserName;
-            }
-        }
-
-        private static string _EmailUrl;
-        public static string EmailUrl
-        {
-            get
-            {
-                if (string.IsNullOrEmpty(_EmailUrl))
-                {
-                    _EmailUrl = Environment.GetEnvironmentVariable("EMAIL_URL");
-                    Log.Information($"_SMSPassword: [{_EmailUrl.Length}]");
-                }
-                return _EmailUrl;
-            }
-        }
-
         private static string _EmailPassword;
         public static string EmailPassword
         {
@@ -145,9 +114,8 @@ namespace OneReportServer.Model
             {
                 if (string.IsNullOrEmpty(_EmailPassword))
                 {
-                    _EmailPassword = "itqk iliw zgoi lgis";
-                        Environment.GetEnvironmentVariable("EMAIL_PASSWORD");
-                    Log.Information($"SMSUrl: [{_EmailPassword}]");
+                    _EmailPassword = Environment.GetEnvironmentVariable("EMAIL_PASSWORD");
+                    Log.Information($"EmailPassword: [{_EmailPassword}]");
                 }
                 return _EmailPassword;
             }
