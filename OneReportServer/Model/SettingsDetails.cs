@@ -15,6 +15,7 @@ namespace OneReportServer.Model
             a = RedisPassword;
             a = EmailPassword;
             var b = JWTExpireIn;
+            b = RedisPort;
             Log.Information("Done Load SettingsDetails");
         }
 
@@ -99,8 +100,7 @@ namespace OneReportServer.Model
             {
                 if (string.IsNullOrEmpty(_RedisPassword))
                 {
-                    _RedisPassword = "JSfsgdO53LrC6xtMfydbfQ2FEo4Ob7rfILNVRwDV";
-                        Environment.GetEnvironmentVariable("REDIS_PASSWORD");
+                    _RedisPassword = Environment.GetEnvironmentVariable("REDIS_PASSWORD");
                     Log.Information($"_RedisPassword: [{_RedisPassword.Length}]");
                 }
                 return _RedisPassword;
@@ -114,7 +114,7 @@ namespace OneReportServer.Model
             {
                 if (string.IsNullOrEmpty(_EmailPassword))
                 {
-                    _EmailPassword = Environment.GetEnvironmentVariable("EMAIL_PASSWORD");
+                    _EmailPassword =  Environment.GetEnvironmentVariable("EMAIL_PASSWORD");
                     Log.Information($"EmailPassword: [{_EmailPassword}]");
                 }
                 return _EmailPassword;
